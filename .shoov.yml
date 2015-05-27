@@ -1,0 +1,14 @@
+env:
+  - secure: "0a89c69f2a2b7679334c"
+  - secure: "0a89c69f2a2b7679334d"
+  - FOO: "bar"
+
+before_script:
+  - cd behat
+  # Instead of composer install, we save time by getting
+  # a gzipped file with the vendor and bin directories.
+  - tar zxf behat-vendor.tar.gz
+  - cp behat.local.yml.example behat.local.yml
+
+script:
+  - ./bin/behat --tags=~wip
