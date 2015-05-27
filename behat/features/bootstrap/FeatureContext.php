@@ -26,7 +26,7 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @When I login with my GitHub account
    */
   public function iLoginWithMyGithubAccount() {
-    $this->iWaitForCssElement('.btn-github', 'appear');
+    $this->iShouldWaitForTheTextTo('Sign in with GitHub', 'appear');
     $element = $this->getSession()->getPage()->find('css', '.btn-github');
     $element->click();
 
