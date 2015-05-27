@@ -37,6 +37,9 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
     $username = getenv('GITHUB_DUMMY_USERNAME');
     $password = getenv('GITHUB_DUMMY_PASSWORD');
 
+    print_r($username);
+    print_r($password);
+
     $element->fillField('login', $username);
     $element->fillField('password', $password);
     $element->findButton('commit')->click();
