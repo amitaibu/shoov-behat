@@ -1,7 +1,6 @@
 env:
   - secure: "0a89c69f2a2b7679334c"
   - secure: "0a89c69f2a2b7679334d"
-  - FOO: "bar"
 
 before_script:
   - cd behat
