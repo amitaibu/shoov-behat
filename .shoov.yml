@@ -11,6 +11,8 @@ before_script:
   # a gzipped file with the vendor and bin directories.
   - tar zxf behat-vendor.tar.gz
   - cp behat.local.yml.example behat.local.yml
+  # Run phantomJS
+  - phantomjs --webdriver=4444 > ~/phantomjs.log 2>&1 &
 
 script:
   - ./bin/behat --tags=~wip
