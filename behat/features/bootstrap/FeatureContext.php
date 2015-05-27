@@ -105,4 +105,24 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
     }
     throw new \Exception('waitFor timed out.');
   }
+
+  /**
+   * @AfterStep
+   *
+   * Take a screen shot after failed steps for Selenium drivers (e.g.
+   * PhantomJs).
+   */
+  public function takeScreenshotAfterFailedStep($event) {
+    if ($event->getTestResult()->isPassed()) {
+      // Not a failed step.
+      return;
+    }
+    if ($this->getSession()->getDriver() instanceof \Behat\Mink\Driver\Selenium2Driver) {
+      $file_name = sys_get_temp_dir() . DIRECTORY_SEPARATOR . time() . 'behat-failed-step.png';
+      $screenshot = $this->getSession()->getDriver()->getScreenshot();
+      file_put_contents($file_name, $screenshot);
+      print "Screenshot for failed step created in $file_name";
+    }
+  }
+
 }
