@@ -16,10 +16,41 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   }
 
   /**
+   * @When I visit the homepage
+   */
+  public function iVisitTheHomepage() {
+    $this->getSession()->visit($this->locatePath('/#/login'));
+  }
+
+  /**
+   * @When I login with my GitHub account
+   */
+  public function iLoginWithMyGithubAccount() {
+    $this->iWaitForCssElement('.btn-github', 'appear');
+    $element = $this->getSession()->getPage()->find('css', '.btn-github');
+    $element->click();
+
+
+    // We are redirected to GitHub
+    $element = $this->getSession()->getPage();
+    $element->fillField('login', 'shoov-tester');
+    $element->fillField('password', 'SomeReallyLongPass');
+    $element->findButton('commit')->click();
+  }
+
+  /**
    * @Then /^I should wait for the text "([^"]*)" to "([^"]*)"$/
    */
   public function iShouldWaitForTheTextTo($text, $appear) {
     $this->waitForXpathNode(".//*[contains(normalize-space(string(text())), \"$text\")]", $appear == 'appear');
+  }
+
+  /**
+   * @Then /^I wait for css element "([^"]*)" to "([^"]*)"$/
+   */
+  protected function iWaitForCssElement($element, $appear) {
+    $xpath = $this->getSession()->getSelectorsHandler()->selectorToXpath('css', $element);
+    $this->waitForXpathNode($xpath, $appear == 'appear');
   }
 
   /**
