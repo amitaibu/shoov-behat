@@ -1,7 +1,9 @@
 env:
-  - secure: "0a89c69f2a2b7679334c"
-  - secure: "0a89c69f2a2b7679334d"
-  - FOO: "bar"
+  # GitHub username
+  - secure: "23a7e0b8145347540564c934cdd62fbe8161a599f5bdce6c7ba6433b8a8c6a779b4a"
+
+  # GitHub password
+  - secure: "23a7e0b8145347540564c934cdd33da88078ab86f4bdee6b79ac67739f85757ab2579ec4a389855b"
 
 before_script:
   - cd behat
@@ -9,6 +11,8 @@ before_script:
   # a gzipped file with the vendor and bin directories.
   - tar zxf behat-vendor.tar.gz
   - cp behat.local.yml.example behat.local.yml
+  # Run phantomJS
+  - phantomjs --webdriver=4444 > ~/phantomjs.log 2>&1 &
 
 script:
   - ./bin/behat --tags=~wip
