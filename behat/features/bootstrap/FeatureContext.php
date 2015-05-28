@@ -35,6 +35,12 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
     // We are redirected to GitHub
     $element = $this->getSession()->getPage();
 
+    if (!$this->getSession()->getPage()->find('css', '#login_field')) {
+      // We are already logged in to GitHub.
+      return;
+    }
+
+
     $username = getenv('GITHUB_DUMMY_USERNAME');
     $password = getenv('GITHUB_DUMMY_PASSWORD');
 
@@ -93,11 +99,11 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @param $fn
    *   A callable to invoke.
    * @param int $timeout
-   *   The timeout period. Defaults to 60 seconds.
+   *   The timeout period. Defaults to 30 seconds.
    *
    * @throws Exception
    */
-  private function waitFor($fn, $timeout = 60000) {
+  private function waitFor($fn, $timeout = 30000) {
     $start = microtime(true);
     $end = $start + $timeout / 1000.0;
     while (microtime(true) < $end) {
