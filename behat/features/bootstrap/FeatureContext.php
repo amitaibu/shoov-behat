@@ -12,7 +12,8 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @Given I am an anonymous user
    */
   public function iAmAnAnonymousUser() {
-    // Sine Jekyll doesn't allow login, we just let this pass-through.
+    // Logout existing user.
+    $this->getSession()->visit($this->locatePath('/#/logout'));
   }
 
   /**
