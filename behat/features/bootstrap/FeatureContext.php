@@ -37,9 +37,6 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
     $username = getenv('GITHUB_DUMMY_USERNAME');
     $password = getenv('GITHUB_DUMMY_PASSWORD');
 
-    print_r($username);
-    print_r($password);
-
     $element->fillField('login', $username);
     $element->fillField('password', $password);
     $element->findButton('commit')->click();
@@ -95,14 +92,11 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @param $fn
    *   A callable to invoke.
    * @param int $timeout
-   *   The timeout period. Defaults to 30 seconds.
+   *   The timeout period. Defaults to 60 seconds.
    *
    * @throws Exception
    */
-  private function waitFor($fn, $timeout = 30000) {
-    if (empty($timeout)) {
-      $timeout = 30000;
-    }
+  private function waitFor($fn, $timeout = 60000) {
     $start = microtime(true);
     $end = $start + $timeout / 1000.0;
     while (microtime(true) < $end) {
