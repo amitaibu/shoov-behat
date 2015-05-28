@@ -12,7 +12,7 @@ before_script:
   - tar zxf behat-vendor.tar.gz
   - cp behat.local.yml.example behat.local.yml
   # Run Chrome driver
-  - chromedriver --url-base=/wd/hub --port=4444 > ~/chromedriver.log 2>&1 &
+  - xvfb-run --server-args="-screen 0, 1366x768x24" selenium-standalone start
 
 script:
   - ./bin/behat --tags=~wip
