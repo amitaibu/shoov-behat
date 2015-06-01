@@ -47,6 +47,9 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
     $element->fillField('login', $username);
     $element->fillField('password', $password);
     $element->findButton('commit')->click();
+
+    // @todo: Remove hack, that waits for GitHub to redirect back to the app.
+    sleep(5);
   }
 
   /**
