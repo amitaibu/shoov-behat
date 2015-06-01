@@ -40,6 +40,8 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
       return;
     }
 
+    // @todo: Remove hack, that waits for GitHub to redirect back to the app.
+    sleep(5);
 
     $username = getenv('GITHUB_DUMMY_USERNAME');
     $password = getenv('GITHUB_DUMMY_PASSWORD');
