@@ -2,3 +2,6 @@ default:
   extensions:
     Behat\MinkExtension:
       base_url: "https://app.shoov.io"
+      selenium2:
+        wd_host: 'http://192.168.59.103:4470/wd/hub'
+        browser: chrome
