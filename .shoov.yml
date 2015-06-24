@@ -1,3 +1,6 @@
+addons:
+  - selenium
+
 env:
   # GitHub username
   - secure: "23a7e0b8145347540564c934cdd62fbe8161a599f5bdce6c7ba6433b8a8c6a779b4a"
