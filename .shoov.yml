@@ -10,9 +10,7 @@ before_script:
   # Instead of composer install, we save time by getting
   # a gzipped file with the vendor and bin directories.
   - tar zxf behat-vendor.tar.gz
-  - cp behat.local.yml.example behat.local.yml
-  # Run Chrome driver
-  - xvfb-run --server-args="-screen 0, 1366x768x24" selenium-standalone start
+  - cp behat.local.yml.shoov behat.local.yml
 
 script:
   - ./bin/behat --tags=~wip
