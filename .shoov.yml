@@ -3,10 +3,10 @@ addons:
 
 env:
   # GitHub username
-  - secure: "23a7e0b8145347540564c934cdd62fbe8161a599f5bdce6c7ba6433b8a8c6a779b4a"
+  - secure: "8a0e4139d27a8f1cec757c485eaa3ca5a038074ced07af46a90959db331a2dd8a7c8"
 
   # GitHub password
-  - secure: "23a7e0b8145347540564c934cdd33da88078ab86f4bdee6b79ac67739f85757ab2579ec4a389855b"
+  - secure: "8a0e4139d27a8f1cec757c485eaf2eb3a1210953ec078f41ab037d93261332d58ed51849fce6258a"
 
 before_script:
   - cd behat
