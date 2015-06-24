@@ -4,5 +4,5 @@ default:
       base_url: "https://app.shoov.io"
       selenium2:
         # http://selenium is the URL alias to the Selenium docker container.
-        wd_host: 'http://selenium/wd/hub'
+        wd_host: "http://selenium:4444/wd/hub"
         browser: chrome
