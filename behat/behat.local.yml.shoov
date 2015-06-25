@@ -3,5 +3,6 @@ default:
     Behat\MinkExtension:
       base_url: "https://app.shoov.io"
       selenium2:
-        wd_host: 'http://192.168.59.103:4470/wd/hub'
+        # http://selenium is the URL alias to the Selenium docker container.
+        wd_host: "http://selenium:4444/wd/hub"
         browser: chrome

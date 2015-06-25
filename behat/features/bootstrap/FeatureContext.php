@@ -40,7 +40,6 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
       return;
     }
 
-
     $username = getenv('GITHUB_DUMMY_USERNAME');
     $password = getenv('GITHUB_DUMMY_PASSWORD');
 

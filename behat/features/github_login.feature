@@ -8,7 +8,4 @@ Feature: GitHub Login
     Given I am an anonymous user
      When I visit the homepage
       And I login with my GitHub account
-     Then I should wait for the text "UI Builds" to "appear"
-
-
-
+     Then I should wait for the text "My Account" to "appear"
