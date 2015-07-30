@@ -6,7 +6,7 @@ env:
   - secure: "8a0e4139d27a8f1cec757c485eaa3ca5a038074ced07af46a90959db331a2dd8a7c8"
 
   # GitHub password
-  - secure: "b8297114e151be3ddd02447f659a09899c1322"
+  - secure: "b0dc5d440b06a4a7b22ea44de206ccd8c367319f77a7873fd77f5d6c0c99c9a9349b350d15"
 
 before_script:
   - cd behat
